@@ -136,25 +136,25 @@ const Home = ({collections}: Props) => {
               Collection Packs
             </h1>
           </div>
-          <div className="flex flex-col md:grid md:grid-cols-3 lg:grid lg:grid-cols-3 mt-7 gap-3 md:gap-1 sm:gap:10 xl:gap-1 2xl:gap-4 lg:gap-5 items-center justify-center">
+          <div className="flex flex-col md:grid md:grid-cols-3 lg:grid lg:grid-cols-3 mt-7 gap-3 md:gap-1 xl:grid xl:grid-cols-3 sm:gap:10 xl:gap-1 2xl:gap-4 lg:gap-5 items-center justify-center">
             
             {
               collections?.map((collection)=> (
                 <>
-                <div  key={collection._id} className='  col-span-1 relative h-420  laptop:w-210  3xl:w-190 xl:w-250 lg:w-300 sm:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center'>
+                <div  key={collection._id} className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
                   <img 
                     className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
                     src={urlFor(collection.mainImage).url()} alt="" />
                     
                     <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
 
-                    <div className='text-base text-gray-300 mx-3 font-semibold'>
+                    <div className='text-base text-gray-300 mx-3 font-semibold xl:text-sm xl:font-light'>
                       <p>Legendary Drop</p>
                       <p>Rare NFT's </p>
                       <p>Common NFT's</p>
                     </div>
-                    <div className='ml-20 mt-5'>
-                       <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
+                    <div className='mt-5 ml-16'>
+                       <button className='text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
                     </div>
                     <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
                       <FaFireAlt/>
@@ -163,19 +163,19 @@ const Home = ({collections}: Props) => {
                     
                     
                </div>
-               <div  key={collection._id} className='col-span-1 relative h-420  laptop:w-210  3xl:w-full lg:w-300 w-250 bg-[#1b1c1e] rounded-xl items-centerr'>
+               <div  key={collection._id} className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150  w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
                <img 
                  className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
                  src={urlFor(collection.mainImage).url()} alt="" />
                  
                  <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
 
-                 <div className='col-span-1 text-base text-gray-300 mx-3 font-semibold'>
+                 <div className='col-span-1 text-base text-gray-300 mx-3 font-semibold xl:text-sm xl:font-light'>
                    <p>Legendary Drop</p>
                    <p>Rare NFT's </p>
                    <p>Common NFT's</p>
                  </div>
-                 <div className='ml-20 mt-5'>
+                 <div className='mt-5 ml-16'>
                     <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
                  </div>
                  <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
@@ -185,19 +185,19 @@ const Home = ({collections}: Props) => {
                  
                  
             </div>
-            <div  key={collection._id} className=' col-span-1 relative h-420  laptop:w-210  3xl:w-full lg:w-300 w-250 bg-[#1b1c1e] rounded-xl items-center'>
+            <div  key={collection._id} className=' col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
             <img 
               className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
               src={urlFor(collection.mainImage).url()} alt="" />
               
               <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
 
-              <div className='text-base text-gray-300 mx-3 font-semibold'>
+              <div className='text-base text-gray-300 mx-3 font-semibold xl:text-sm xl:font-light'>
                 <p>Legendary Drop</p>
                 <p>Rare NFT's </p>
                 <p>Common NFT's</p>
               </div>
-              <div className='ml-20 mt-5'>
+              <div className='mt-5 ml-16'>
                  <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
               </div>
               <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>

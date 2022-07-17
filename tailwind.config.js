@@ -32,9 +32,10 @@ module.exports = {
         1024: '1024px',
       },
       screens: {
-        'tablet': '640px',
+        'tablet': '730px',
         'laptop': '1536px',
         'desktop': '1280px',
+        'mobile': '639px',
        
       }
     },
