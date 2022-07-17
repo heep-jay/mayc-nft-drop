@@ -1,29 +1,27 @@
-import type { GetServerSideProps, NextPage } from 'next'
-import {client, urlFor} from '../sanity'
-import Head from 'next/head'
-import Image from 'next/image'
-import LandingPage from '../components/LandingPage';
+import React from 'react'
 import {RiSearchLine} from 'react-icons/ri';
 import {BsSun,BsInstagram, BsTwitter, BsLink} from 'react-icons/bs';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { GoPrimitiveDot } from 'react-icons/go';
-import {FaRegDotCircle, FaFireAlt } from 'react-icons/fa';
+import {FaRegDotCircle} from 'react-icons/fa';
 import { Collection } from '../typings'
+import { GetServerSideProps } from 'next';
+import {client, urlFor} from '../sanity';
+
 
 interface Props {
   collections: Collection[]
   
 }
 
-const Home = ({collections}: Props) => {
+
+
+
+
+const LandingPage = ({collections}: Props) => {
   console.log('hey', collections)
   return (
-    <div className="bg-black min-h-fit">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className='flex flex-col bg-black h-screen'>
+    <div className='flex flex-col bg-black h-screen'>
       {/* Nav */}
       
       <nav>
@@ -32,7 +30,7 @@ const Home = ({collections}: Props) => {
             <h1 className='text-xl lg:text-3xl font-extrabold lg:mr-16 md:mr-10 sm:mr-5 text-white mx-5 '>BAYC DROP</h1>
           
             
-        <div className=' lg:w-full flex items-center lg:bg-[#1b1c1e] py-3 rounded-full text-white px-4 flex-0.7 lg:mr-14'>
+        <div className=' lg:w-full flex items-center lg:bg-gray-500 py-3 rounded-full text-white px-4 flex-0.7 lg:mr-14'>
         <RiSearchLine fontSize={30}/>
         <input 
               className=' ml-5 outline-none hidden lg:flex bg-inherit lg:w-full decoration-none placeholder-white'
@@ -89,7 +87,7 @@ const Home = ({collections}: Props) => {
            
         </div>
         {/* right */}
-        <div className='2xl:col-span-5 flex flex-col 2xl:justify-between xl:col-span-6 col-span-6 bg-black p-5'>
+        <div className='2xl:col-span-5 flex flex-col 2xl:ustify-between xl:col-span-6 col-span-6 bg-black p-5'>
 
           {/* header */}
           <div  className='flex flex-col '>
@@ -136,88 +134,22 @@ const Home = ({collections}: Props) => {
               Collection Packs
             </h1>
           </div>
-          <div className="flex flex-col md:grid md:grid-cols-3 lg:grid lg:grid-cols-3 mt-7 gap-3 md:gap-1 sm:gap:10 xl:gap-1 2xl:gap-4 lg:gap-5 items-center justify-center">
+          <div className="flex flex-col md:flex-row lg:flex-wrap mt-7 xl:gap-3 2xl: gap-2 lg:gap-5 items-center justify-center">
             
-            {
+            {/* {
               collections?.map((collection)=> (
-                <>
-                <div  key={collection._id} className='  col-span-1 relative h-420  laptop:w-210  3xl:w-190 xl:w-250 lg:w-300 sm:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center'>
-                  <img 
-                    className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
-                    src={urlFor(collection.mainImage).url()} alt="" />
-                    
-                    <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
-
-                    <div className='text-base text-gray-300 mx-3 font-semibold'>
-                      <p>Legendary Drop</p>
-                      <p>Rare NFT's </p>
-                      <p>Common NFT's</p>
-                    </div>
-                    <div className='ml-20 mt-5'>
-                       <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
-                    </div>
-                    <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
-                      <FaFireAlt/>
-                    </div>
-
-                    
-                    
+                <div  key={collection._id} className='h-420  laptop:w-200 xl:w-190 lg:w-275 w-250  bg-white rounded-xl'>
+                    {collection.name}
                </div>
-               <div  key={collection._id} className='col-span-1 relative h-420  laptop:w-210  3xl:w-full lg:w-300 w-250 bg-[#1b1c1e] rounded-xl items-centerr'>
-               <img 
-                 className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
-                 src={urlFor(collection.mainImage).url()} alt="" />
-                 
-                 <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
-
-                 <div className='col-span-1 text-base text-gray-300 mx-3 font-semibold'>
-                   <p>Legendary Drop</p>
-                   <p>Rare NFT's </p>
-                   <p>Common NFT's</p>
-                 </div>
-                 <div className='ml-20 mt-5'>
-                    <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
-                 </div>
-                 <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
-                   <FaFireAlt/>
-                 </div>
-
-                 
-                 
-            </div>
-            <div  key={collection._id} className=' col-span-1 relative h-420  laptop:w-210  3xl:w-full lg:w-300 w-250 bg-[#1b1c1e] rounded-xl items-center'>
-            <img 
-              className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
-              src={urlFor(collection.mainImage).url()} alt="" />
-              
-              <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
-
-              <div className='text-base text-gray-300 mx-3 font-semibold'>
-                <p>Legendary Drop</p>
-                <p>Rare NFT's </p>
-                <p>Common NFT's</p>
-              </div>
-              <div className='ml-20 mt-5'>
-                 <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
-              </div>
-              <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
-                <FaFireAlt/>
-              </div>
-
-              
-              
-         </div>
-         </>
               ))
-            }
-            
+            } */}
           
-          {/* <div className='h-420 laptop:w-200  xl:w-190 lg:w-275 w-250 2xl:300 bg-white rounded-xl'>
-            gagag
-          </div>
-          <div className='h-420 laptop:w-200 xl:w-190 lg:w-275  w-250  bg-white rounded-xl'>
-            gagag
-          </div> */}
+            <div className='h-420 laptop:w-200  xl:w-190 lg:w-275 w-250 2xl:300 bg-white rounded-xl'>
+              gagag
+            </div>
+            <div className='h-420 laptop:w-200 xl:w-190 lg:w-275  w-250  bg-white rounded-xl'>
+              gagag
+            </div>
           
           
           
@@ -231,23 +163,19 @@ const Home = ({collections}: Props) => {
 
       </div>
     </div>
-
-
-      
-    </div>
   )
 }
 
-export default Home
+export default LandingPage;
 export const getServerSideProps: GetServerSideProps = async () => {
 
   
-  const query = `*[_type == "collection"]|  order(_createdAt asc){
+  const query = `*[_type == "collection"]{
     _id,
     title,
     address,
     description,
-    nftCollectionImage,
+    nftCollectionName,
     mainImage{
     asset
   },
