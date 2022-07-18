@@ -8,7 +8,11 @@ import {BsSun,BsInstagram, BsTwitter, BsLink} from 'react-icons/bs';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { GoPrimitiveDot } from 'react-icons/go';
 import {FaRegDotCircle, FaFireAlt } from 'react-icons/fa';
-import { Collection } from '../typings'
+import { Collection } from '../typings';
+import Link from 'next/link';
+import { useState } from 'react';
+
+
 
 interface Props {
   collections: Collection[]
@@ -16,6 +20,7 @@ interface Props {
 }
 
 const Home = ({collections}: Props) => {
+
   console.log('hey', collections)
   return (
     <div className="bg-black min-h-fit">
@@ -141,7 +146,10 @@ const Home = ({collections}: Props) => {
             {
               collections?.map((collection)=> (
                 <>
-                <div  key={collection._id} className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
+                <Link href={`/nft/${collection.slug.current}`}>
+                
+                
+                <div  key={collection._id} className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center cursor-pointer'>
                   <img 
                     className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
                     src={urlFor(collection.mainImage).url()} alt="" />
@@ -163,6 +171,7 @@ const Home = ({collections}: Props) => {
                     
                     
                </div>
+               </Link>
                <div  key={collection._id} className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150  w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
                <img 
                  className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'

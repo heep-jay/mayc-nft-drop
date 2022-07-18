@@ -20,6 +20,7 @@ export interface Collection{
     name: string
     title: address
     address: string
+    description:string
     _type: string
     slug:{
         current: string
