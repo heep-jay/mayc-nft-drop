@@ -172,6 +172,8 @@ const Home = ({collections}: Props) => {
                     
                </div>
                </Link>
+
+               <Link href={`/nft/${collection.slug.current}`}>
                <div  key="1" className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150  w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
                <img 
                  className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
@@ -185,15 +187,16 @@ const Home = ({collections}: Props) => {
                    <p>Common NFT's</p>
                  </div>
                  <div className='mt-5 ml-16'>
-                    <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
+                    <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Coming soon</button>
                  </div>
                  <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
                    <FaFireAlt/>
                  </div>
+                </div>
+            </Link>
+            <Link href={`/nft/${collection.slug.current}`}>
 
-                 
-                 
-            </div>
+          
             <div  key="2" className=' col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
             <img 
               className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
@@ -207,7 +210,7 @@ const Home = ({collections}: Props) => {
                 <p>Common NFT's</p>
               </div>
               <div className='mt-5 ml-16'>
-                 <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Mint Drop</button>
+                 <button className='mx-auto text-white border-white border py-2 px-4 rounded-3xl'>Coming soon</button>
               </div>
               <div className='absolute text-red-600 top-5 left-5 p-3 bg-white rounded-full'>
                 <FaFireAlt/>
@@ -216,6 +219,7 @@ const Home = ({collections}: Props) => {
               
               
          </div>
+         </Link>
          </>
               ))
             }

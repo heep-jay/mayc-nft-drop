@@ -7,6 +7,7 @@ import { Collection } from '../../typings';
 import { BigNumber } from 'ethers';
 import toast, {Toaster} from 'react-hot-toast'
 import { setTimeout } from 'timers/promises';
+import Link from 'next/link';
 
 interface Props {
   collection: Collection
@@ -132,7 +133,7 @@ const NftMintPage = ( {collection}:Props) => {
       
       <Toaster position='bottom-center'/>    
      {/* left */}
-     <div className='lg:col-span-4 md:col-span-3 bg-gradient-to-br from-[#F7BA2C] to-[#EA5459]'>
+     <div className='lg:col-span-4 md:col-span-3 bg-gradient-to-br from-[#F44369] to-[#3E3B92]'>
         <div className='flex flex-col sm:flex-row sm:p-7 lg:flex-col items-center justify-center py-2 mt-4 lg:min-h-screen'>
           <div className='bg-gradient-to-br from-[#F5C900] to-[#183182] p-2 rounded-2xl'>
            <img className='w-44 rounded-xl object-cover lg:h-96 lg:w-72 flex-1' src={urlFor(collection.mainImage).url()} alt="drop-photo" />
@@ -153,7 +154,12 @@ const NftMintPage = ( {collection}:Props) => {
         {/* Header */}
         <header className='flex items-center justify-between'>
           <h1 className='w-52 cursor-pointer text-xl sm:w-80 font-extralight'>
-            The <span className='font-extrabold underline decoration-pink-600/50'>MAYC</span> NFT Drop!!
+            The {" "}
+            <Link href="/">
+              <span className='font-extrabold underline decoration-pink-600/50'>
+                MAYC
+              </span>
+            </Link> NFT Drop!!
           </h1>
           <button onClick={ address ?()=> disconnect()  : () => connectMetaMask()} className='bg-[#EA5459] rounded-full px-4 py-2 text-white text-xs font-bold lg:text-base lg:px-5 lg:py-3 '>
             { address ? 'Disconnect': 'Connect Wallet'}
@@ -183,7 +189,7 @@ const NftMintPage = ( {collection}:Props) => {
        
           <button 
             onClick={mintNft}
-            disabled={loading || !address || claimedSupply === totalSupply?.toNumber()}  className='h-16 bg-gradient-to-br from-[#F7BA2C] to-[#EA5459] py-2 rounded-full text-white mt-5 disabled:bg-gray-400 disabled:cursor-no-drop'>
+            disabled={loading || !address || claimedSupply === totalSupply?.toNumber()}  className='h-16 bg-gradient-to-br from-[#F44369] to-[#3E3B92] py-2 rounded-full text-white mt-5 disabled:bg-gray-400 disabled:cursor-no-drop'>
             {loading ? (
               <>Loading</>
             ): !address ? (
