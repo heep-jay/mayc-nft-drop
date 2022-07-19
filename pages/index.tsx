@@ -172,12 +172,12 @@ const Home = ({collections}: Props) => {
                     
                </div>
                </Link>
-               <div  key={collection._id} className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150  w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
+               <div  key="1" className='col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150  w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
                <img 
                  className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
-                 src={urlFor(collection.mainImage).url()} alt="" />
+                 src="https://lh3.googleusercontent.com/tKiLf7SY5TejGSyDsNV1UMi6otMxZgN6KHHm2Yq-R9wjSgxz44CohW0iXj-kMO2jPgWD0iihIDt1P-1u10Vr_2p4L6OIUunzbSaM=s0" alt="" />
                  
-                 <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
+                 <p className='text-lg font-bold text-gray-400 p-3'>Block head</p>
 
                  <div className='col-span-1 text-base text-gray-300 mx-3 font-semibold xl:text-sm xl:font-light'>
                    <p>Legendary Drop</p>
@@ -194,12 +194,12 @@ const Home = ({collections}: Props) => {
                  
                  
             </div>
-            <div  key={collection._id} className=' col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
+            <div  key="2" className=' col-span-1 relative h-420 3xl:w-190 xl:w-full laptop:w-210 lg:w-300  tablet:w-210 md:w-150 w-250 bg-[#1b1c1e] rounded-xl items-center justify-center'>
             <img 
               className='w-44 h-52 object-cover mx-auto mt-7 rounded-lg'
-              src={urlFor(collection.mainImage).url()} alt="" />
+              src="https://lh3.googleusercontent.com/XWhyWNcvBeh7S3Etc-0b3UALJi7uCxYOkH0ZwIh7EM5Y8NCSYqLN6-KuRQMYFnLlyn8Fgj7hgVb8GvF0oZb3dgRxp1kEvZO0qrb0fA=w600" alt="" />
               
-              <p className='text-lg font-bold text-gray-400 p-3'> {collection.title}</p>
+              <p className='text-lg font-bold text-gray-400 p-3'>Cyber Block Head #09</p>
 
               <div className='text-base text-gray-300 mx-3 font-semibold xl:text-sm xl:font-light'>
                 <p>Legendary Drop</p>

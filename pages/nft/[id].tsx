@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
 import { useMetamask, useDisconnect, useAddress, useNFTDrop } from '@thirdweb-dev/react';
+import Confettti from '../../components/Confettti';
 import { client, urlFor } from '../../sanity';
 import { Collection } from '../../typings';
 import { BigNumber } from 'ethers';
 import toast, {Toaster} from 'react-hot-toast'
+import { setTimeout } from 'timers/promises';
 
 interface Props {
   collection: Collection
@@ -18,6 +20,7 @@ const NftMintPage = ( {collection}:Props) => {
   const [totalSupply, setTotalSupply] = useState<BigNumber>();
   const [loading, setLoading] = useState<boolean>(true);
   const [priceInEth, setPriceInEth] = useState<string>();
+  
 
   const connectMetaMask = useMetamask();
   const address = useAddress();
@@ -48,45 +51,86 @@ const NftMintPage = ( {collection}:Props) => {
     
   }, [nftDrop]);
 
+
   const mintNft = () => {
     if(!nftDrop && !address) return;
 
     setLoading(true)
+    const notification = toast.loading('Minting...',{
+      style:{
+        background: 'white',
+        color: 'green',
+        fontWeight: 'bolder',
+        fontSize: '17px',
+        padding: '20px',
+      },
+    })
 
     const quantity = 1;
-    nftDrop?.claimTo(address! ,quantity)
+    nftDrop
+    ?.claimTo(address! ,quantity)
     .then(async (txdata)=>{
       const receipt = txdata[0].receipt;
       const claimedTokenId = txdata[0].id;
 
       const claimedNFT = await txdata[0].data();
+      
 
+      toast('HOORAY You have succesfully Minted!',{
+        duration: 8000,
+        style:{
+          background: 'green',
+          color: 'white',
+          fontWeight: 'bolder',
+          fontSize: '17px',
+          padding: '20px',
+        }
+      });
       console.log(receipt);
       console.log(claimedTokenId);
       console.log(claimedNFT);
 
     })
-    .catch((err) => err.message)
+    .catch((err) => {
+      err.message
+      toast('WHOOPS.... Something went wrong!',{
+        duration: 8000,
+        style:{
+          background: 'white',
+          color: 'red',
+          fontWeight: 'bolder',
+          fontSize: '17px',
+          padding: '20px',
+        }
+      })
+    
+    })
     .finally(()=>{
-      setLoading(false)
+      setLoading(false);
+      
+
+     
+      toast.dismiss(notification);
       const fetchNftDropData = async () =>{
     
         const claimed = await nftDrop.getAllClaimed();
-        const total = await nftDrop.totalSupply()
+        const total = await nftDrop.totalSupply();
   
         setClaimedSupply(claimed.length);
         setTotalSupply(total);
         
       } 
      
-      fetchNftDropData()
+      fetchNftDropData();
+     
     })
   }
   
 
   return (
     <div className='flex h-screen flex-col lg:grid lg:grid-cols-10'>
-      <Toaster/>
+      
+      <Toaster position='bottom-center'/>    
      {/* left */}
      <div className='lg:col-span-4 md:col-span-3 bg-gradient-to-br from-[#F7BA2C] to-[#EA5459]'>
         <div className='flex flex-col sm:flex-row sm:p-7 lg:flex-col items-center justify-center py-2 mt-4 lg:min-h-screen'>
